@@ -208,3 +208,76 @@ axes[1].set_title('Распределение по классам')
 
 plt.show()
 ```
+
+## 🔗 Pairplot числовых признаков
+
+Визуализация взаимосвязей между числовыми признаками:
+
+```python
+pd.plotting.scatter_matrix(
+    df.select_dtypes(include='number'),
+    figsize=(10, 10)
+)
+
+plt.suptitle('Pairplot числовых признаков')
+plt.show()
+```
+
+## 🎻 Violin plot (возраст по полу)
+
+Сравнение распределения возраста мужчин и женщин:
+
+```python
+data = [
+    df[df['Sex']=='male']['Age'].dropna(),
+    df[df['Sex']=='female']['Age'].dropna()
+]
+
+plt.figure(figsize=(6, 4))
+
+plt.violinplot(data)
+
+plt.xticks([1, 2], ['Male', 'Female'])
+plt.title('Возраст по полу')
+plt.ylabel('Age')
+
+plt.show()
+```
+
+## 🔥 Heatmap корреляций
+
+Построение корреляционной матрицы:
+
+```python
+corr = df.corr(numeric_only=True)
+
+plt.figure(figsize=(8, 6))
+
+plt.imshow(corr)
+
+plt.colorbar()
+
+plt.xticks(range(len(corr)), corr.columns, rotation=90)
+plt.yticks(range(len(corr)), corr.columns)
+
+plt.title('Корреляционная матрица')
+
+plt.show()
+```
+
+## 🌞 Sunburst plot (структура пассажиров)
+
+Интерактивная визуализация структуры пассажиров по классу и полу:
+
+```python
+sunburst_data = df.groupby(['Pclass', 'Sex']).size().reset_index(name='count')
+
+fig = px.sunburst(
+    sunburst_data,
+    path=['Pclass', 'Sex'],
+    values='count',
+    title='Структура пассажиров по классу и полу'
+)
+
+fig.show()
+```
