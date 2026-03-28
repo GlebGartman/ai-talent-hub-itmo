@@ -61,6 +61,7 @@
 df.info()
 df.isna().sum()
 ```
+![Первичный анализ данных](https://drive.google.com/uc?export=view&id=1D7CF0EWObBd2Zc749mQKydlp-QfsQuka)
 
 ## 📊 Описательная статистика
 ```python
@@ -73,6 +74,8 @@ df.describe()
 - стандартные отклонения  
 - минимальные и максимальные значения
 
+![Описательная статистика](https://drive.google.com/uc?export=view&id=1plJsP05nqg3-lbKUhTHaO-GYC-1nMXqO)
+
 ## 📈 Процент выживаемости по классам
 ```python
 survival_by_class = df.groupby('Pclass')['Survived'].mean() * 100
@@ -80,6 +83,7 @@ survival_by_class
 ```
 Показывает зависимость вероятности выживания от класса пассажира.
 
+![Процент выживаемости по классам](https://drive.google.com/uc?export=view&id=1r4O8AewTKMywCmFJ-lxQMvCw_h_SFDkh)
 
 ## 👤 Самые популярные имена на корабле
 
@@ -115,6 +119,8 @@ for pclass in sorted(df['Pclass'].unique()):
     print(f'Женское имя: {female_name}')
     print()
 ```
+![Самые популярные имена](https://drive.google.com/uc?export=view&id=16GJU2fkq3K8UH7xofPt_WYh1ovMub_fc)
+
 ## 🚢 Анализ кают
 
 ```python
@@ -122,6 +128,7 @@ cabins = df['Cabin'].dropna()
 cabins_count = cabins.str.split().apply(len).value_counts()
 cabins_count
 ```
+![Анализ кают](https://drive.google.com/uc?export=view&id=1eIOID0pHn-RdYfO9YGO8EAqIgkrCeR-g)
 
 ## 👨‍👩‍👧 Пассажиры без родственников
 
@@ -156,6 +163,8 @@ plt.tight_layout()
 plt.show()
 ```
 
+![Визуализация распределений](https://drive.google.com/uc?export=view&id=1Cj7jg3NMCDBalb6c_XZxnB2MSKLr4KAM)
+
 ## 📦 Boxplot возраста (Age)
 
 Визуализируем распределение возраста пассажиров и выбросы:
@@ -170,6 +179,7 @@ plt.ylabel('Возраст')
 
 plt.show()
 ```
+![Boxplot возраста](https://drive.google.com/uc?export=view&id=1vVY-0JpTeNC56wzi2pAzCuNFHGWo-qBV)
 
 ## 📌 Интерпретация boxplot возраста
 ```python
@@ -208,6 +218,7 @@ axes[1].set_title('Распределение по классам')
 
 plt.show()
 ```
+![Pie chart распределений](https://drive.google.com/uc?export=view&id=1ubvgBosNDb-TkdKu72CL9lYRHIHjwN1I)
 
 ## 🔗 Pairplot числовых признаков
 
@@ -222,6 +233,7 @@ pd.plotting.scatter_matrix(
 plt.suptitle('Pairplot числовых признаков')
 plt.show()
 ```
+![Pairplot числовых признаков](https://drive.google.com/uc?export=view&id=1b7Qdsm29u-2AQ-Mx-ZOG7EDnb1ALr8Y4)
 
 ## 🎻 Violin plot (возраст по полу)
 
@@ -243,6 +255,7 @@ plt.ylabel('Age')
 
 plt.show()
 ```
+![Violin plot](https://drive.google.com/uc?export=view&id=1KcA-ajFls9yppiFs2c4uCgh8Wzdd7Duj)
 
 ## 🔥 Heatmap корреляций
 
@@ -264,6 +277,7 @@ plt.title('Корреляционная матрица')
 
 plt.show()
 ```
+![Heatmap корреляций](https://drive.google.com/uc?export=view&id=1J3dLXbs4zw24BG8dPKLYAzV1DYzuCPbB)
 
 ## 🌞 Sunburst plot (структура пассажиров)
 
@@ -281,3 +295,4 @@ fig = px.sunburst(
 
 fig.show()
 ```
+![Sunburst plot](https://drive.google.com/uc?export=view&id=10A4GEoOx0KTZBdA6dWUR4LKn7E8gTvhZ)
